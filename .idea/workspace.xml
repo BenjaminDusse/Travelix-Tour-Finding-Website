@@ -9,8 +9,14 @@
       <change afterPath="$PROJECT_DIR$/media/recreation_pics/offer_4.jpg" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/travelix/migrations/0011_rest_area_rating_stars.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/travelix/migrations/0012_auto_20211114_0223.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/travelix/migrations/0016_client_category.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/travelix/migrations/0017_alter_client_category.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/travelix/migrations/0018_alter_client_client.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/travelix/migrations/0019_auto_20211114_0529.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/config/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/travelix/about.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/travelix/about.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/travelix/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/travelix/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travelix/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/travelix/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/travelix/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/travelix/models.py" afterDir="false" />
@@ -37,7 +43,7 @@
     </file-type-list>
   </component>
   <component name="ProjectId" id="20rMBq3ty1gh83rUXkIHxLf55pD" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -49,8 +55,13 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/templates/travelix" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Benjamin Dusse\Desktop\Travelix Tour Website\templates\travelix" />
+    </key>
   </component>
   <component name="RunManager">
     <configuration name="Travelix Tour Website" type="Python.DjangoServer" factoryName="Django server">
@@ -90,7 +101,7 @@
       <workItem from="1636866325343" duration="5307000" />
       <workItem from="1636882114418" duration="4900000" />
       <workItem from="1636888460934" duration="2154000" />
-      <workItem from="1636892105232" duration="270000" />
+      <workItem from="1636892105232" duration="12306000" />
     </task>
     <servers />
   </component>

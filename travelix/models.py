@@ -31,6 +31,8 @@ class Rest_area(models.Model):
     image = models.ImageField(upload_to='recreation_pics/')
     bottom_images = models.ImageField(upload_to='recreation_pics/bottoms', blank=True, null=True)
     price = models.DecimalField(max_digits=6, decimal_places=2)
+    city = models.CharField(max_length=200)
+    state = models.CharField(max_length=200)
     text = RichTextField()
     type = models.CharField(max_length=300, choices=TYPE_CHOICES)
     tags = models.ManyToManyField(Tag)
@@ -41,6 +43,7 @@ class Rest_area(models.Model):
     rest_views = models.IntegerField(default=0, null=True, blank=True)
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
     dislikes = models.ManyToManyField(User, related_name='post_dislikes', blank=True)
+
 
     def __str__(self):
         return self.title
@@ -74,9 +77,11 @@ class Review(models.Model):
 
 
 class Client(models.Model):
+    category = models.ForeignKey(Category, on_delete=models.SET_NULL, related_name='category', null=True, blank=True)
     client = models.ForeignKey(
         User,
-        on_delete=models.CASCADE
+        on_delete=models.CASCADE,
+        related_name='user'
     )
     first_name = models.CharField(max_length=200)
     last_name = models.CharField(max_length=200)
