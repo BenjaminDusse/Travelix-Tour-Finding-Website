@@ -2155,3 +2155,33 @@ section
 {
 	color: #FFFFFF;
 }
+
+.paginationn
+{
+    height:60px;
+    width:600px;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 2px 2px 7px rgba(0,0,0,0.2),-2px -2px 7px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.paginationn a
+{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    color:black;
+    font-family: Days One;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+paginationn.active:hover
+{
+    background: black;
+    border-radius:50%;
+    color:white;
+}

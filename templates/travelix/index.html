@@ -568,7 +568,7 @@
                                             <i></i>
                                             <i></i>
                                         </div>
-                                        <p class="offers_text">{{ cheaper.text|safe }}</p>
+                                        <p class="offers_text">{{ cheaper.text|truncatewords:20|safe }}</p>
                                         <div class="offers_icons">
                                             <ul class="offers_icons_list">
                                                 <li class="offers_icons_item"><img src="{% static 'images/post.png' %}"

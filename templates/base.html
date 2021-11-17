@@ -16,6 +16,18 @@
     <link rel="stylesheet" type="text/css" href="{% static 'styles/responsive.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/about_styles.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'styles/about_responsive.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/offers_styles.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/offers_responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/contact_responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/contact_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/blog_responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/blog_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/elements_responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/elements_styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/single_listing_responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'single_listing_styles.css' %}">
+
 </head>
 
 <body>
@@ -63,16 +75,15 @@
                 <div class="row">
                     <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container">
-                            <div class="logo"><a href="#"><img src="{% static 'images/logogo.png' %}"
-                                                               alt="">travelix</a></div>
+                            <div class="logo"><a href="{% url 'home' %}"><img src="{% static 'images/logogo.png' %}" alt="">travelix</a></div>
                         </div>
                         <div class="main_nav_container ml-auto">
                             <ul class="main_nav_list">
-                                <li class="main_nav_item"><a href="#">home</a></li>
-                                <li class="main_nav_item"><a href="about.html">about us</a></li>
-                                <li class="main_nav_item"><a href="offers.html">offers</a></li>
+                                <li class="main_nav_item"><a href="{% url 'home' %}">home</a></li>
+                                <li class="main_nav_item"><a href="{% url 'about' %}">about us</a></li>
+                                <li class="main_nav_item"><a href="{% url 'offers' %}">offers</a></li>
                                 <li class="main_nav_item"><a href="blog.html">news</a></li>
-                                <li class="main_nav_item"><a href="contact.html">contact</a></li>
+                                <li class="main_nav_item"><a href="{% url 'contact' %}">contact</a></li>
                             </ul>
                         </div>
                         <div class="content_search ml-lg-0 ml-auto">
@@ -115,6 +126,20 @@
 
     </header>
 
+
+    	<div class="menu trans_500">
+		<div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
+			<div class="menu_close_container"><div class="menu_close"></div></div>
+			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>
+			<ul>
+				<li class="menu_item"><a href="index.html">home</a></li>
+				<li class="menu_item"><a href="about.html">about us</a></li>
+				<li class="menu_item"><a href="offers.html">offers</a></li>
+				<li class="menu_item"><a href="blog.html">news</a></li>
+				<li class="menu_item"><a href="#">contact</a></li>
+			</ul>
+		</div>
+	</div>
 
     {% block content %}
 
@@ -199,9 +224,9 @@
                             {% for tag in tags %}
                                 <ul class="tags_list clearfix">
 
-                                    <li class="tag_item"><a href="#">{{ tag.name }}</a></li>
-                                    {% endfor %}
-                                </ul>
+                                <li class="tag_item"><a href="#">{{ tag.name }}</a></li>
+                            {% endfor %}
+                            </ul>
 
                         </div>
                     </div>
@@ -269,7 +294,6 @@
 <script src="{% static 'plugins/easing/easing.js' %}"></script>
 <script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
 <script src="{% static 'js/about_custom.js' %}"></script>
-
 
 </body>
 
