@@ -13,7 +13,7 @@
                 <li class="menu_item"><a href="#">home</a></li>
                 <li class="menu_item"><a href="about.html">about us</a></li>
                 <li class="menu_item"><a href="offers.html">offers</a></li>
-                <li class="menu_item"><a href="blog.html">news</a></li>
+                <li class="menu_item"><a href="../blog/blog.html">news</a></li>
                 <li class="menu_item"><a href="contact.html">contact</a></li>
             </ul>
         </div>
@@ -42,7 +42,7 @@
                             <h1>the world</h1>
                             <div class="button home_slider_button">
                                 <div class="button_bcg"></div>
-                                <a href="#">explore now<span></span><span></span><span></span></a></div>
+                                <a href="{% url 'travelix:offers' %}">explore now<span></span><span></span><span></span></a></div>
                         </div>
                     </div>
                 </div>
@@ -146,255 +146,6 @@
 
     </div>
 
-    <!-- Search -->
-
-    <div class="search">
-
-
-        <!-- Search Contents -->
-
-        <div class="container fill_height">
-            <div class="row fill_height">
-                <div class="col fill_height">
-
-                    <!-- Search Tabs -->
-
-                    <div class="search_tabs_container">
-                        <div class="search_tabs d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            {% for category in categories %}
-                                <div class="search_tab  d-flex flex-row align-items-center justify-content-lg-center justify-content-start">
-
-                                    <img src="{{ category.icon.url }}" alt=""><span>{{ category.name }}</span></div>
-                            {% endfor %}
-                        </div>
-                    </div>
-
-                    <!-- Search Panel -->
-
-                    <div class="search_panel active">
-                        <form action="#" id="search_form_1"
-                              class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            <div class="search_item">
-                                <div>destination</div>
-                                <input type="text" class="destination search_input" required="required">
-                            </div>
-                            <div class="search_item">
-                                <div>check in</div>
-                                <input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>check out</div>
-                                <input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>adults</div>
-                                <select name="adults" id="adults_1" class="dropdown_item_select search_input">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <div>children</div>
-                                <select name="children" id="children_1" class="dropdown_item_select search_input">
-                                    <option>0</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <button class="button search_button">search<span></span><span></span><span></span></button>
-                        </form>
-                    </div>
-
-                    <!-- Search Panel -->
-
-                    <div class="search_panel">
-                        <form action="#" id="search_form_2"
-                              class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            <div class="search_item">
-                                <div>destination</div>
-                                <input type="text" class="destination search_input" required="required">
-                            </div>
-                            <div class="search_item">
-                                <div>check in</div>
-                                <input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>check out</div>
-                                <input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>adults</div>
-                                <select name="adults" id="adults_2" class="dropdown_item_select search_input">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <div>children</div>
-                                <select name="children" id="children_2" class="dropdown_item_select search_input">
-                                    <option>0</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <button class="button search_button">search<span></span><span></span><span></span></button>
-                        </form>
-                    </div>
-
-                    <!-- Search Panel -->
-
-                    <div class="search_panel">
-                        <form action="#" id="search_form_3"
-                              class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            <div class="search_item">
-                                <div>destination</div>
-                                <input type="text" class="destination search_input" required="required">
-                            </div>
-                            <div class="search_item">
-                                <div>check in</div>
-                                <input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>check out</div>
-                                <input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>adults</div>
-                                <select name="adults" id="adults_3" class="dropdown_item_select search_input">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <div>children</div>
-                                <select name="children" id="children_3" class="dropdown_item_select search_input">
-                                    <option>0</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <button class="button search_button">search<span></span><span></span><span></span></button>
-                        </form>
-                    </div>
-
-                    <!-- Search Panel -->
-
-                    <div class="search_panel">
-                        <form action="#" id="search_form_4"
-                              class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            <div class="search_item">
-                                <div>destination</div>
-                                <input type="text" class="destination search_input" required="required">
-                            </div>
-                            <div class="search_item">
-                                <div>check in</div>
-                                <input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>check out</div>
-                                <input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>adults</div>
-                                <select name="adults" id="adults_4" class="dropdown_item_select search_input">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <div>children</div>
-                                <select name="children" id="children_4" class="dropdown_item_select search_input">
-                                    <option>0</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <button class="button search_button">search<span></span><span></span><span></span></button>
-                        </form>
-                    </div>
-
-                    <!-- Search Panel -->
-
-                    <div class="search_panel">
-                        <form action="#" id="search_form_5"
-                              class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            <div class="search_item">
-                                <div>destination</div>
-                                <input type="text" class="destination search_input" required="required">
-                            </div>
-                            <div class="search_item">
-                                <div>check in</div>
-                                <input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>check out</div>
-                                <input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>adults</div>
-                                <select name="adults" id="adults_5" class="dropdown_item_select search_input">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <div>children</div>
-                                <select name="children" id="children_5" class="dropdown_item_select search_input">
-                                    <option>0</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <button class="button search_button">search<span></span><span></span><span></span></button>
-                        </form>
-                    </div>
-
-                    <!-- Search Panel -->
-
-                    <div class="search_panel">
-                        <form action="#" id="search_form_6"
-                              class="search_panel_content d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-lg-between justify-content-start">
-                            <div class="search_item">
-                                <div>destination</div>
-                                <input type="text" class="destination search_input" required="required">
-                            </div>
-                            <div class="search_item">
-                                <div>check in</div>
-                                <input type="text" class="check_in search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>check out</div>
-                                <input type="text" class="check_out search_input" placeholder="YYYY-MM-DD">
-                            </div>
-                            <div class="search_item">
-                                <div>adults</div>
-                                <select name="adults" id="adults_6" class="dropdown_item_select search_input">
-                                    <option>01</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <div class="search_item">
-                                <div>children</div>
-                                <select name="children" id="children_6" class="dropdown_item_select search_input">
-                                    <option>0</option>
-                                    <option>02</option>
-                                    <option>03</option>
-                                </select>
-                            </div>
-                            <button class="button search_button">search<span></span><span></span><span></span></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- Intro -->
 
     <div class="intro">
@@ -428,7 +179,7 @@
                                     - {{ rest.limit_date|date:"M d S" }}</div>
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
-                                    <a href="#">see more<span></span><span></span><span></span></a></div>
+                                    <a href="{% url 'travelix:offer_detail' rest.pk %}">see more<span></span><span></span><span></span></a></div>
                                 <div class="intro_center text-center">
                                     <h1>{{ rest.title }}</h1>
                                     <div class="intro_price">From ${{ rest.price }}</div>
@@ -479,7 +230,7 @@
                                     <p class="cta_text">{{ rest.text|truncatewords:50|safe }}</p>
                                     <div class="button cta_button">
                                         <div class="button_bcg"></div>
-                                        <a href="#">book now<span></span><span></span><span></span></a></div>
+                                        <a href="{{ rest.get_absolute_url }}">book now<span></span><span></span><span></span></a></div>
                                 </div>
                             {% endfor %}
 
@@ -554,7 +305,7 @@
                                     <div class="offers_image_container">
                                         <div class="offers_image_background"
                                              style="background-image:url({{ cheaper.image.url }})"></div>
-                                        <div class="offer_name"><a href="#">{{ cheaper.title }}</a></div>
+                                        <div class="offer_name"><a href="{% url 'travelix:offer_detail' cheaper.pk %}">{{ cheaper.title }}</a></div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -581,7 +332,7 @@
                                                         src="{% static 'images/sailboat.png' %}" alt=""></li>
                                             </ul>
                                         </div>
-                                        <div class="offers_link"><a href="#">read more</a></div>
+                                        <div class="offers_link"><a href="{% url 'travelix:offer_detail' cheaper.pk %}">read more</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -703,7 +454,7 @@
                                                          alt="">
                         </div>
                         <div class="trending_content">
-                            <div class="trending_title"><a href="#">{{ trend.title }}</a></div>
+                            <div class="trending_title"><a href="{% url 'travelix:offer_detail' trend.pk %}">{{ trend.title }}</a></div>
                             <div class="trending_price">From ${{ trend.price }}</div>
                             <div class="trending_location">{{ trend.city }}, {{ trend.state }}</div>
                         </div>
