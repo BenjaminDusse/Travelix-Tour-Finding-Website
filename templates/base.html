@@ -44,7 +44,7 @@
                     <div class="col d-flex flex-row">
                         <div class="social_list_item">
                             <a href="tel:712000610"><i class="fa fa-phone"
-                                           aria-hidden="true"></i></a>
+                                                       aria-hidden="true"></i></a>
                         </div>
                         <div class="social">
                             <ul class="social_list">
@@ -63,8 +63,13 @@
                             </ul>
                         </div>
                         <div class="user_box ml-auto">
-                            <div class="user_box_login user_box_link"><a href="#">login</a></div>
-                            <div class="user_box_register user_box_link"><a href="#">register</a></div>
+                            {% if user.is_authenticated %}
+                                <div class="user_box_login user_box_link"><a href="#">{{ user.username }}</a></div>
+                                <div class="user_box_login user_box_link"><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></div>
+                            {% else %}
+                                <div class="user_box_login user_box_link"><a href="{% url 'accounts:login' %}?next={{request.path}}">login</a></div>
+                                <div class="user_box_register user_box_link"><a href="{% url 'accounts:register' %}">register</a></div>
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -78,7 +83,7 @@
                 <div class="row">
                     <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container">
-                            <div class="logo"><a href="{% url 'travelix:home' %}"><img
+                            <div class="logo"><a href="{% url 'travelix:home' %}?next={{request.path}}"><img
                                     src="{% static 'images/logogo.png' %}" alt="">travelix</a></div>
                         </div>
                         <div class="main_nav_container ml-auto">
@@ -136,7 +141,7 @@
     {#			<div class="menu_close_container"><div class="menu_close"></div></div>#}
     {#			<div class="logo menu_logo"><a href="#"><img src="images/logo.png" alt=""></a></div>#}
     {#			<ul>#}
-    {#				<li class="menu_item"><a href="index.html">home</a></li>#}
+    {#				<li class="menu_item"><a href="register.html">home</a></li>#}
     {#				<li class="menu_item"><a href="about.html">about us</a></li>#}
     {#				<li class="menu_item"><a href="offers.html">offers</a></li>#}
     {#				<li class="menu_item"><a href="blog.html">news</a></li>#}

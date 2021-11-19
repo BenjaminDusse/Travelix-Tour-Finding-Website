@@ -46,8 +46,8 @@ class Rest_area(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)
     rest_views = models.IntegerField(default=0, null=True, blank=True)
-    likes = models.ManyToManyField(User, related_name='rest_likes', blank=True)
-    dislikes = models.ManyToManyField(User, related_name='rest_dislikes', blank=True)
+    likes = models.ManyToManyField(User, related_name='rest_likes')
+    dislikes = models.ManyToManyField(User, related_name='rest_dislikes')
     map_url = models.CharField(max_length=300, blank=True, null=True)
 
     def __str__(self):

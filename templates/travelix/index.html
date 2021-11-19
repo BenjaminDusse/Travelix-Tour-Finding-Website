@@ -3,6 +3,14 @@
 
 {% block content %}
 
+
+    {% if messages %}
+        {% for message in messages %}
+
+                alert("{{ message }}");
+
+        {% endfor %}
+    {% endif %}
     <div class="menu trans_500">
         <div class="menu_content d-flex flex-column align-items-center justify-content-center text-center">
             <div class="menu_close_container">
@@ -42,7 +50,8 @@
                             <h1>the world</h1>
                             <div class="button home_slider_button">
                                 <div class="button_bcg"></div>
-                                <a href="{% url 'travelix:offers' %}">explore now<span></span><span></span><span></span></a></div>
+                                <a href="{% url 'travelix:offers' %}">explore now<span></span><span></span><span></span></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -179,7 +188,8 @@
                                     - {{ rest.limit_date|date:"M d S" }}</div>
                                 <div class="button intro_button">
                                     <div class="button_bcg"></div>
-                                    <a href="{% url 'travelix:offer_detail' rest.pk %}">see more<span></span><span></span><span></span></a></div>
+                                    <a href="{% url 'travelix:offer_detail' rest.pk %}">see
+                                        more<span></span><span></span><span></span></a></div>
                                 <div class="intro_center text-center">
                                     <h1>{{ rest.title }}</h1>
                                     <div class="intro_price">From ${{ rest.price }}</div>
@@ -230,7 +240,8 @@
                                     <p class="cta_text">{{ rest.text|truncatewords:50|safe }}</p>
                                     <div class="button cta_button">
                                         <div class="button_bcg"></div>
-                                        <a href="{{ rest.get_absolute_url }}">book now<span></span><span></span><span></span></a></div>
+                                        <a href="{{ rest.get_absolute_url }}">book
+                                            now<span></span><span></span><span></span></a></div>
                                 </div>
                             {% endfor %}
 
@@ -305,7 +316,9 @@
                                     <div class="offers_image_container">
                                         <div class="offers_image_background"
                                              style="background-image:url({{ cheaper.image.url }})"></div>
-                                        <div class="offer_name"><a href="{% url 'travelix:offer_detail' cheaper.pk %}">{{ cheaper.title }}</a></div>
+                                        <div class="offer_name"><a
+                                                href="{% url 'travelix:offer_detail' cheaper.pk %}">{{ cheaper.title }}</a>
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6">
@@ -332,7 +345,8 @@
                                                         src="{% static 'images/sailboat.png' %}" alt=""></li>
                                             </ul>
                                         </div>
-                                        <div class="offers_link"><a href="{% url 'travelix:offer_detail' cheaper.pk %}">read more</a></div>
+                                        <div class="offers_link"><a href="{% url 'travelix:offer_detail' cheaper.pk %}">read
+                                            more</a></div>
                                     </div>
                                 </div>
                             </div>
@@ -447,19 +461,20 @@
             </div>
             <div class="row trending_container">
                 {% for trend in trending %}
-                <!-- Trending Item -->
-                <div class="col-lg-3 col-sm-6">
-                    <div class="trending_item clearfix">
-                        <div class="trending_image"><img src="{{ trend.image.url }}"
-                                                         alt="">
-                        </div>
-                        <div class="trending_content">
-                            <div class="trending_title"><a href="{% url 'travelix:offer_detail' trend.pk %}">{{ trend.title }}</a></div>
-                            <div class="trending_price">From ${{ trend.price }}</div>
-                            <div class="trending_location">{{ trend.city }}, {{ trend.state }}</div>
+                    <!-- Trending Item -->
+                    <div class="col-lg-3 col-sm-6">
+                        <div class="trending_item clearfix">
+                            <div class="trending_image"><img src="{{ trend.image.url }}"
+                                                             alt="">
+                            </div>
+                            <div class="trending_content">
+                                <div class="trending_title"><a
+                                        href="{% url 'travelix:offer_detail' trend.pk %}">{{ trend.title }}</a></div>
+                                <div class="trending_price">From ${{ trend.price }}</div>
+                                <div class="trending_location">{{ trend.city }}, {{ trend.state }}</div>
+                            </div>
                         </div>
                     </div>
-                </div>
                 {% endfor %}
 
 

@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.views.generic import ListView, DetailView
 from django.core.mail import send_mail
 from django.conf import settings
+from django.contrib.auth.decorators import login_required
 
 from blog.models import Post
 from .models import Tag, Category, Rest_area, Client
@@ -75,6 +76,7 @@ def offer_detail(request, pk):
     comments = rest_area.comments.all()
     rest_map_url = rest_area.map_url
 
+
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():
@@ -132,3 +134,17 @@ def base(request):
         'posts': posts
     }
     return render(request, 'base.html', context)
+
+
+@login_required(login_url='accounts:login')
+def like_rest(request, pk):
+    post = get_object_or_404(Rest_area, id=request.POST.get('rest_area_id'))
+    post.likes.add(request.user)
+    return redirect('travelix:offer_detail', pk)
+
+
+@login_required(login_url='accounts:login')
+def dislike_rest(request, pk):
+    post = get_object_or_404(Rest_area, id=request.POST.get('rest_area_id'))
+    post.dislikes.add(request.user)
+    return redirect('travelix:offer_detail', pk)

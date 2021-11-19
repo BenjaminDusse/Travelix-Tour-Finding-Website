@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView
 from django.core.paginator import Paginator
-
+from django.contrib.auth.decorators import login_required
 
 from .models import Post, Comment, Category, Tag, Social_Network_Post, Social_Network
 from .forms import CommentForm

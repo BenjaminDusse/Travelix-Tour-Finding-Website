@@ -471,6 +471,23 @@
 
                             <!-- Hotel Info Text -->
 
+                            <form style="display: inline-block;" action="{% url 'travelix:like_rest' rest_area.pk %}"
+                                  method="post">
+                                {% csrf_token %}
+                                <button type="submit" name="rest_area_id" value='{{ rest_area.pk }}'
+                                        class="btn btn-light btn-sm"><img style="width:25px"
+                                                                          src="https://img.icons8.com/material-sharp/50/000000/facebook-like.png"/><span
+                                        class="pl-2">{{ rest_area.total_likes }}</span></button>
+                            </form>
+                            <form style="display: inline-block;" action="{% url 'travelix:dislike_rest' rest_area.pk %}"
+                                  method="post">
+                                {% csrf_token %}
+                                <button type="submit" name="rest_area_id" value='{{ rest_area.pk }}'
+                                        class="btn btn-light btn-sm"><img style="width:25px"
+                                                                          src="https://img.icons8.com/material/24/000000/thumbs-down--v1.png"/><span
+                                        class="pl-2">{{ rest_area.total_dislikes }}</span></button>
+                            </form>
+
                             <div class="hotel_info_text">
                                 <p>{{ rest_area.text|safe }}</p>
                             </div>
@@ -528,16 +545,24 @@
 
                         <!-- Reviews -->
 
+                        {% if not.rest_area.comments.all %}
+                            No Commets Yet...
+                        <a href="">Post comment</a>
+
                         <div class="reviews">
                             <div class="reviews_container">
 
+                                {% if user.is_authenticated %}
                                 <form action="{% url 'travelix:offer_detail' rest_area.pk %}" method="post">
                                     {% csrf_token %}
                                     {{ form|crispy }}
-                                    <input type="submit" class="btn btn-primary button book_button trans_200"
-                                           value="Submit">
-                                </form>
 
+                                        <input type="submit" class="btn btn-primary button book_button trans_200"
+                                               value="Submit">
+                                </form>
+                            {% endif %}
+
+                            {% endif %}
                                 <!-- Review -->
                                 <div class="reviews_title">Reviews</div>
                                 {% for comment in rest_area.comments.all %}
@@ -553,7 +578,7 @@
                                             <div class="col-lg-11">
 
                                                 <div class="review_content">
-													<div class="review_title">{{ comment.content }}</div>
+                                                    <div class="review_title">{{ comment.content }}</div>
                                                     <div class="review_name">{{ comment.first_name }} {{ comment.last_name }}</div>
                                                     <div class="review_date">{{ comment.date_created|date:"d F Y" }}</div>
                                                 </div>
