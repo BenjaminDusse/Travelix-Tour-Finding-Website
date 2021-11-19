@@ -76,7 +76,6 @@ def offer_detail(request, pk):
     comments = rest_area.comments.all()
     rest_map_url = rest_area.map_url
 
-
     if request.method == 'POST':
         form = CommentForm(request.POST)
         if form.is_valid():

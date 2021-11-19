@@ -546,8 +546,9 @@
                         <!-- Reviews -->
 
                         {% if not.rest_area.comments.all %}
-                            No Commets Yet...
+                            No Commits Yet...
                         <a href="">Post comment</a>
+                        {% endif %}
 
                         <div class="reviews">
                             <div class="reviews_container">
@@ -562,7 +563,6 @@
                                 </form>
                             {% endif %}
 
-                            {% endif %}
                                 <!-- Review -->
                                 <div class="reviews_title">Reviews</div>
                                 {% for comment in rest_area.comments.all %}
