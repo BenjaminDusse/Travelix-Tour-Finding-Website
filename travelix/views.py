@@ -9,6 +9,20 @@ from .models import Tag, Category, Rest_area, Client
 from .forms import CommentForm
 
 
+# Home search
+def search(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        data = Rest_area.objects.filter(title__icontains=q)
+    else:
+        data = Rest_area.objects.all()
+
+    context = {
+        'data': data
+    }
+    return render(request, 'travelix/search.html', context)
+
+
 def home(request):
     categories = Category.objects.all()
     tags = Tag.objects.all()
@@ -47,7 +61,7 @@ class OfferListView(ListView):
     model = Rest_area
     template_name = 'travelix/offers.html'
     context_object_name = 'rests'
-    paginate_by = 2
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -147,3 +161,11 @@ def dislike_rest(request, pk):
     post = get_object_or_404(Rest_area, id=request.POST.get('rest_area_id'))
     post.dislikes.add(request.user)
     return redirect('travelix:offer_detail', pk)
+
+
+def book(request):
+    tags = Tag.objects.all()
+    posts = Post.objects.all().order_by('-date_created')[:3]
+
+    context = {}
+    return render(request, 'travelix/book.html', context)

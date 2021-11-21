@@ -65,10 +65,13 @@
                         <div class="user_box ml-auto">
                             {% if user.is_authenticated %}
                                 <div class="user_box_login user_box_link"><a href="#">{{ user.username }}</a></div>
-                                <div class="user_box_login user_box_link"><a href="{% url 'logout' %}?next={{request.path}}">Logout</a></div>
+                                <div class="user_box_login user_box_link"><a
+                                        href="{% url 'logout' %}?next={{ request.path }}">Logout</a></div>
                             {% else %}
-                                <div class="user_box_login user_box_link"><a href="{% url 'accounts:login' %}?next={{request.path}}">login</a></div>
-                                <div class="user_box_register user_box_link"><a href="{% url 'accounts:register' %}">register</a></div>
+                                <div class="user_box_login user_box_link"><a
+                                        href="{% url 'accounts:login' %}?next={{ request.path }}">login</a></div>
+                                <div class="user_box_register user_box_link"><a href="{% url 'accounts:register' %}">register</a>
+                                </div>
                             {% endif %}
                         </div>
                     </div>
@@ -83,7 +86,7 @@
                 <div class="row">
                     <div class="col main_nav_col d-flex flex-row align-items-center justify-content-start">
                         <div class="logo_container">
-                            <div class="logo"><a href="{% url 'travelix:home' %}?next={{request.path}}"><img
+                            <div class="logo"><a href="{% url 'travelix:home' %}?next={{ request.path }}"><img
                                     src="{% static 'images/logogo.png' %}" alt="">travelix</a></div>
                         </div>
                         <div class="main_nav_container ml-auto">
@@ -121,9 +124,13 @@
 							</svg>
                         </div>
 
-                        <form id="search_form" class="search_form bez_1">
-                            <input type="search" class="search_content_input bez_1">
+                        <form action="/search" id="search_form" class="search_form bez_1">
+                            <input type="search" class="search_content_input bez_1" name="q">
                         </form>
+{#                        <form class="d-flex">#}
+{#                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="q">#}
+{#                            <button class="btn btn-outline-success" type="submit">Search</button>#}
+{#                        </form>#}
 
                         <div class="hamburger">
                             <i class="fa fa-bars trans_200"></i>

@@ -15,4 +15,7 @@ urlpatterns = [
 
 
     path("base/", views.base, name="base"),
+    path("search/", views.search, name="search"),
+    path("book.html/", views.book, name="book"),
+
 ]
