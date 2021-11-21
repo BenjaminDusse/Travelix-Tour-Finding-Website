@@ -11,7 +11,7 @@ class PostListView(ListView):
     model = Post
     template_name = 'blog/blog.html'
     context_object_name = 'posts'
-    paginate_by = 2
+    paginate_by = 4
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -50,7 +50,7 @@ def post_detail(request, pk):
         form = CommentForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('blog:post_detail', pk=self.pk)
+            return redirect('blog:post_detail', pk=pk)
 
     context = {
         'posts': posts,
