@@ -385,7 +385,7 @@
                                 </div>
                                 <div class="hotel_title_button ml-lg-auto text-lg-right">
                                     <div class="button book_button trans_200"><a
-                                            href="{% if user.is_authenticated %}{% url 'book' %}{% else %}{% url 'login' %}{% endif %}">book<span></span><span></span><span></span></a>
+                                            href="{% if user.is_authenticated %}{% url 'travelix:book' %}{% else %}{% url 'login' %}{% endif %}">book<span></span><span></span><span></span></a>
                                     </div>
                                     <div class="hotel_map_link_container">
                                         <div class="hotel_map_link"><a href="{{ rest_area.map_url }}">See Location on

@@ -26,9 +26,9 @@
                         <form action="{% url 'travelix:home' %}" id="contact_form" class="contact_form text-center" method="post">
                             {% csrf_token %}
                             <input type="text" id="contact_form_name" class="contact_form_name input_field"
-                                   placeholder="Name" required="required" data-error="Name is required.">
+                                   placeholder="Name" required="required" data-error="Name is required." name="message_name">
                             <input type="text" id="contact_form_email" class="contact_form_email input_field"
-                                   placeholder="E-mail" required="required" data-error="Email is required.">
+                                   placeholder="E-mail" required="required" data-error="Email is required." name="message_email">
                             <input type="text" id="contact_form_subject" class="contact_form_subject input_field"
                                    placeholder="Subject" required="required" data-error="Subject is required.">
                             <textarea id="contact_form_message" class="text_field contact_form_message" name="message"

@@ -11,6 +11,10 @@ from .forms import CommentForm
 
 # Home search
 def search(request):
+    tags = Tag.objects.all()
+    posts = Post.objects.all().order_by('-date_created')[:3]
+
+
     if 'q' in request.GET:
         q = request.GET['q']
         data = Rest_area.objects.filter(title__icontains=q)
@@ -18,7 +22,9 @@ def search(request):
         data = Rest_area.objects.all()
 
     context = {
-        'data': data
+        'data': data,
+        'tags': tags,
+        'posts': posts
     }
     return render(request, 'travelix/search.html', context)
 
@@ -120,15 +126,28 @@ def contact(request):
     posts = Post.objects.all().order_by('-date_created')[:3]
     tags = Tag.objects.all()
 
+
+
     if request.method == 'POST':
+        message_name = request.POST['message-name']
+        message_email = request.POST['message-email']
         message = request.POST['message']
 
-        send_mail('Contact Form',
-                  message,
-                  settings.EMAIL_HOST_USER,
-                  ['abduhakimovfazliddin2002@gmail.com'],
-                  fail_silently=False
-                  )
+        context = {
+            'message_name', message_name,
+            'message_email', message_email,
+            'message', message
+        }
+
+        send_mail(
+            message_name,           # subject
+            message,            # message
+            message_email,                # from email
+            ['abduhakimovfazliddin2002@gmail.com']            # To email,
+
+        )
+
+        return render(request, 'travelix/contact.html', context)
 
     context = {
         'tags': tags,
@@ -167,5 +186,8 @@ def book(request):
     tags = Tag.objects.all()
     posts = Post.objects.all().order_by('-date_created')[:3]
 
-    context = {}
+    context = {
+        'tags': tags,
+        'posts': posts
+    }
     return render(request, 'travelix/book.html', context)
