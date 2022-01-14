@@ -33,7 +33,7 @@ def home(request):
     categories = Category.objects.all()
     tags = Tag.objects.all()
     rests = Rest_area.objects.all()
-    cheap_rests = Rest_area.objects.filter(price__lt=100)[:4]
+    cheap_rests = Rest_area.objects.filter(price__lt=100)
     client_tems = Client.objects.all()[:4]
     trending = Rest_area.objects.all().order_by('likes')
     posts = Post.objects.all().order_by('-date_created')[:3]
@@ -42,7 +42,7 @@ def home(request):
         'tags': tags,
         'categories': categories,
         'rests': rests[:3],
-        'cheap_rests': cheap_rests,
+        'cheap_rests': cheap_rests[:4],
         'clients': client_tems[:4],
         'trending': trending[:8],
         'posts': posts[:3]
