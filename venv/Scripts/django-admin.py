@@ -1,4 +1,4 @@
-#!C:\Users\Benjamin Dusse\Desktop\Travelix Tour Website\Travelix-Tour-Finding-Website\venv\Scripts\python.exe
+#!C:\Users\abduh\OneDrive\Desktop\Travelix-Tour-Finding-Website\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 
